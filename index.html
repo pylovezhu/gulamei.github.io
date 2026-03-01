@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="谷腊妹，资深财富管理专家，北京恒昌汇财投资管理有限公司团队经理，专注固定收益理财、个性化财富管理、香港保险业务等综合财富规划服务。">
+    <meta name="keywords" content="谷腊妹,财富管理,固定收益理财,香港保险,北京恒昌汇财,财务规划师,资产管理">
+    <title>谷腊妹 - 资深财务规划专家</title>
+    <style>
+        /* 基础重置与字体设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fcfcfc;
+            padding-top: 60px;
+        }
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(16, 42, 67, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 9998;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+        }
+        .navbar-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-logo {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .navbar-logo span {
+            color: var(--accent-gold);
+        }
+        .navbar-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .navbar-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .navbar-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        /* 颜色变量定义 */
+        :root {
+            --primary-navy: #102A43; /* 稳重深蓝 */
+            --accent-gold: #C5A059;  /* 香槟金 */
+            --light-bg: #F8F9FA;     /* 浅灰背景 */
+        }
+
+        /* 核心布局类 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: var(--primary-navy);
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            margin: 15px auto 0;
+        }
+
+        /* 1. 首屏展示区 (Hero) */
+        .hero {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+        }
+        .hero-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+        .hero-text {
+            flex: 0 0 500px;
+            text-align: center;
+        }
+        .hero-text h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: white;
+        }
+        .hero-text h2 {
+            font-size: 18px;
+            color: var(--accent-gold);
+            margin-bottom: 30px;
+            font-weight: 400;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .hero-text p {
+            font-size: 18px;
+            font-style: italic;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 15px;
+        }
+        .btn-gold {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .btn-gold:hover { background-color: #a88544; }
+        .aum-display {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #C5A059;
+        }
+        .aum-display .aum-label {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        .aum-display .aum-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: #C5A059;
+            margin: 0;
+        }
+        .aum-display .aum-unit {
+            font-size: 24px;
+        }
+        .hero-image {
+            width: 350px;
+            height: 450px;
+            background-color: #243B53; /* 照片占位符背景 */
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #829AB1;
+            overflow: hidden;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        /* 2. 个人简介 (About) */
+        .about { padding: 80px 0; background-color: white; }
+        .about p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 28px;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        /* 3. 核心专长 (Expertise) */
+        .expertise { padding: 80px 0; background-color: var(--light-bg); }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s ease;
+        }
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gold);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        .card-icon {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .card h3 {
+            font-size: 22px;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .card p {
+            font-size: 15px;
+            color: #777;
+            text-align: center;
+            line-height: 1.7;
+        }
+        .card-cta,
+        .business-cta {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+        }
+        .card:hover .card-cta {
+            color: var(--primary-navy);
+        }
+        .card-cta span {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .card:hover .card-cta span {
+            transform: translateX(5px);
+        }
+
+        /* 4. 客户见证 (Testimonials) */
+        .testimonials { padding: 80px 0; background-color: white; }
+        .testimonial-box {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .testimonial-author {
+            color: var(--accent-gold);
+            text-align: right;
+            font-size: 14px;
+        }
+
+        /* 6. 公司业务板块 */
+        .business-sections {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+        .business-item {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #1a3a5c 100%);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .business-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .business-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(16, 42, 67, 0.3);
+        }
+        .business-icon {
+            font-size: 42px;
+            margin-bottom: 22px;
+            display: inline-block;
+            transition: transform 0.4s ease;
+            color: var(--accent-gold);
+        }
+        .business-item:hover .business-icon {
+            transform: scale(1.08);
+        }
+        .business-item h3 {
+            font-size: 20px;
+            color: white;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .business-item p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .business-cta {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        .business-item:hover .business-cta {
+            color: var(--primary-navy);
+        }
+        .business-cta span {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .business-item:hover .business-cta span {
+            transform: translateX(5px);
+        }
+
+        /* 深度合作机构模块 */
+        .partners-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        .partners-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .partners-header h2 {
+            font-size: 28px;
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .partners-header p {
+            font-size: 15px;
+            color: #777;
+        }
+        .partners-marquee-container {
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
+        .partners-marquee {
+            display: flex;
+            gap: 80px;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+        }
+        .partners-marquee:hover {
+            animation-play-state: paused;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .partner-item {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            height: 100px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .partner-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 50px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.6);
+            transition: all 0.3s ease;
+        }
+        .partner-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #999;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .partner-item:hover {
+            transform: scale(1.1);
+        }
+        .partner-item:hover .partner-logo img {
+            filter: grayscale(0%) opacity(1);
+        }
+        .partner-item:hover .partner-name {
+            color: var(--primary-navy);
+        }
+        .partners-marquee-container:hover .partner-item:not(:hover) {
+            opacity: 0.6;
+        }
+
+        /* 5. 底部与联系方式 (Footer) */
+        footer { background-color: #0A1929; color: #829AB1; padding: 60px 0 20px; }
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+        .contact-info {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+        .contact-info h3 { color: white; margin-bottom: 20px; font-size: 20px; }
+        .contact-info p { margin-bottom: 10px; font-size: 15px; }
+        .disclaimer {
+            border-top: 1px solid #102A43;
+            padding-top: 20px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* 弹窗样式 */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-overlay.show {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            color: var(--primary-navy);
+        }
+        .modal-title {
+            font-size: 20px;
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .modal-desc {
+            font-size: 14px;
+            color: #666;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .company-link {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .company-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .navbar-links { display: none; }
+            body { padding-top: 50px; }
+            .hero { padding: 60px 0; }
+            .hero-content { flex-direction: column-reverse; text-align: center; gap: 30px; }
+            .hero-text { flex: 1; min-width: 100%; }
+            .hero-text p { border-left: none; padding-left: 0; }
+            .hero-text h1 { font-size: 32px; }
+            .hero-text h2 { 
+                white-space: normal; 
+                font-size: 16px; 
+                line-height: 1.5; 
+            }
+            .aum-display .aum-value { font-size: 36px; }
+            .hero-image { width: 100%; height: 280px; }
+            .section-title { 
+                font-size: 24px; 
+                margin-bottom: 25px; 
+            }
+            .modal-content { margin: 20px; }
+            
+            /* 修复网格布局挤压问题 */
+            .grid-cards, 
+            .business-grid { 
+                grid-template-columns: 1fr; 
+                gap: 20px; 
+            }
+            
+            /* 适当减小卡片内边距，留出更多阅读空间 */
+            .card { 
+                padding: 30px 20px; 
+            }
+            .business-item { 
+                padding: 30px 20px; 
+            }
+            
+            /* 让主要行动按钮在手机上占满全宽 */
+            .btn-gold { 
+                width: 100%; 
+                box-sizing: border-box; 
+            }
+            
+            /* 削减手机端多余的空白留白 */
+            .about, .expertise, .business-sections, .partners-section, .testimonials { 
+                padding: 40px 0; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">谷<span>腊妹</span></div>
+            <ul class="navbar-links">
+                <li><a href="#hero">首页</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#expertise">核心服务</a></li>
+                <li><a href="#business">业务板块</a></li>
+                <li><a href="#testimonials">客户声音</a></li>
+                <li><a href="#contact">联系我</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>谷腊妹</h1>
+                <h2>资深财富管理专家 | <a href="https://www.credithc-hc.com/home" target="_blank" class="company-link">北京恒昌汇财投资管理有限公司</a> | 团队经理</h2>
+                <p>"以专业丈量价值，用时间成就托付。为您构筑跨越经济周期的家庭财富护城河。"</p>
+                <div class="aum-display">
+                    <p class="aum-label">管理资产规模 (AUM)</p>
+                    <p class="aum-value">1.28<span class="aum-unit">亿</span></p>
+                </div>
+                <a href="javascript:void(0);" class="btn-gold" id="open-modal-btn">预约专属财务咨询</a>
+            </div>
+            <div class="hero-image">
+                <img src="头像.jpg" alt="谷腊妹女士">
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">认识 谷腊妹</h2>
+            <p>您好，我是谷腊妹。在金融财富管理行业深耕的 11 年里，我见证过市场的狂热与低谷，也服务过数百个背景各异的家庭与企业。</p>
+            <p>我始终认为，真正的财务规划，绝不是单纯追求短期收益的最大化，而是"对未来确定性的管理"。作为一名财务规划师和团队管理者，我的使命是穿透复杂的数据与繁多的金融产品，为您量身定制最契合当下诉求与长远目标的解决方案。</p>
+            <p>无论是子女教育、品质养老、还是家族财富的无限传承，我都将以最严谨的专业态度，为您和您的家人守护每一份得来不易的财富，让您能够安心专注于事业与生活。</p>
+        </div>
+    </section>
+
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <h2 class="section-title">核心服务领域</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <span class="card-icon">🛡️</span>
+                    <h3>固定收益理财</h3>
+                    <p>为客户提供短期固定收益理财产品，帮助客户在风险可控的前提下实现资产稳健增值。</p>
+                    <a href="#contact" class="card-cta">了解更多 <span>→</span></a>
+                </div>
+                <div class="card">
+                    <span class="card-icon">📊</span>
+                    <h3>个性化财富管理</h3>
+                    <p>根据客户的风险偏好、财务状况、家庭结构等因素，提供定制化的财富管理解决方案。</p>
+                    <a href="#contact" class="card-cta">了解更多 <span>→</span></a>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🌏</span>
+                    <h3>香港保险业务</h3>
+                    <p>为客户提供香港保险产品咨询与规划服务，包括重疾险、终身寿险、年金险等，帮助客户实现全球化资产配置。</p>
+                    <a href="https://www.ftlife.com.hk" target="_blank" class="card-cta">了解更多 <span>→</span></a>
+                </div>
+                <div class="card">
+                    <span class="card-icon">👥</span>
+                    <h3>专属财富顾问</h3>
+                    <p>由资深理财师团队为您提供一对一、全生命周期的综合财富管理定制服务。</p>
+                    <a href="#contact" class="card-cta">了解更多 <span>→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司业务板块 -->
+    <section class="business-sections" id="business">
+        <div class="container">
+            <h2 class="section-title">公司业务板块</h2>
+            <div class="business-grid">
+                <div class="business-item">
+                    <div class="business-icon">💰</div>
+                    <h3>固收</h3>
+                    <p>固定收益类理财产品</p>
+                    <a href="#contact" class="business-cta">了解详情 <span>→</span></a>
+                </div>
+                <div class="business-item">
+                    <div class="business-icon">📈</div>
+                    <h3>私募股权</h3>
+                    <p>优质股权投资机会</p>
+                    <a href="#contact" class="business-cta">了解详情 <span>→</span></a>
+                </div>
+                <div class="business-item">
+                    <div class="business-icon">$</div>
+                    <h3>美元基金</h3>
+                    <p>全球化资产配置</p>
+                    <a href="#contact" class="business-cta">了解详情 <span>→</span></a>
+                </div>
+                <div class="business-item">
+                    <div class="business-icon">🏠</div>
+                    <h3>海外置业</h3>
+                    <p>全球房地产投资</p>
+                    <a href="#contact" class="business-cta">了解详情 <span>→</span></a>
+                </div>
+                <div class="business-item">
+                    <div class="business-icon">📊</div>
+                    <h3>公募基金</h3>
+                    <p>专业基金投资服务</p>
+                    <a href="#contact" class="business-cta">了解详情 <span>→</span></a>
+                </div>
+                <div class="business-item">
+                    <div class="business-icon">🛡</div>
+                    <h3>境内外保险</h3>
+                    <p>全方位保障规划</p>
+                    <a href="https://www.ftlife.com.hk" target="_blank" class="business-cta">了解详情 <span>→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 深度合作机构 -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="partners-header">
+                <h2>深度合作的行业头部机构</h2>
+                <p>—— 携手顶尖机构，为您甄选全球核心资产 ——</p>
+            </div>
+            <div class="partners-marquee-container">
+                <div class="partners-marquee">
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/经纬中国.jpg" alt="经纬中国">
+                        </div>
+                        <div class="partner-name">经纬中国</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/华盖资本.png" alt="华盖资本">
+                        </div>
+                        <div class="partner-name">华盖资本</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/同创伟业.png" alt="同创伟业">
+                        </div>
+                        <div class="partner-name">同创伟业</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/青松基金.png" alt="青松基金">
+                        </div>
+                        <div class="partner-name">青松基金</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/深创投.png" alt="深创投">
+                        </div>
+                        <div class="partner-name">深创投</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/梅花创投.png" alt="梅花创投">
+                        </div>
+                        <div class="partner-name">梅花创投</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/盛世环球资产.png" alt="盛世环球资产">
+                        </div>
+                        <div class="partner-name">盛世环球资产</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/EJF.png" alt="EJF">
+                        </div>
+                        <div class="partner-name">EJF</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/惠每医疗.png" alt="惠每医疗">
+                        </div>
+                        <div class="partner-name">惠每医疗</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/LAYA Resort.png" alt="LAYA Resort">
+                        </div>
+                        <div class="partner-name">LAYA Resort</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/UTOPIA Hotel Group.png" alt="UTOPIA Hotel Group">
+                        </div>
+                        <div class="partner-name">UTOPIA Hotel Group</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/万通保险.png" alt="万通保险">
+                        </div>
+                        <div class="partner-name">万通保险</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/周大福保险.png" alt="周大福保险">
+                        </div>
+                        <div class="partner-name">周大福保险</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/泰康人寿.png" alt="泰康人寿">
+                        </div>
+                        <div class="partner-name">泰康人寿</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/信美相互.png" alt="信美相互">
+                        </div>
+                        <div class="partner-name">信美相互</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/英国保诚保险.png" alt="英国保诚">
+                        </div>
+                        <div class="partner-name">英国保诚</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/友邦保险.png" alt="友邦保险">
+                        </div>
+                        <div class="partner-name">友邦保险</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/鹏扬基金.png" alt="鹏扬基金">
+                        </div>
+                        <div class="partner-name">鹏扬基金</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/南方基金.png" alt="南方基金">
+                        </div>
+                        <div class="partner-name">南方基金</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/广发基金.png" alt="广发基金">
+                        </div>
+                        <div class="partner-name">广发基金</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/博时基金.png" alt="博时基金">
+                        </div>
+                        <div class="partner-name">博时基金</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/经纬中国.jpg" alt="经纬中国">
+                        </div>
+                        <div class="partner-name">经纬中国</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/华盖资本.png" alt="华盖资本">
+                        </div>
+                        <div class="partner-name">华盖资本</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/同创伟业.png" alt="同创伟业">
+                        </div>
+                        <div class="partner-name">同创伟业</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/青松基金.png" alt="青松基金">
+                        </div>
+                        <div class="partner-name">青松基金</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/深创投.png" alt="深创投">
+                        </div>
+                        <div class="partner-name">深创投</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/梅花创投.png" alt="梅花创投">
+                        </div>
+                        <div class="partner-name">梅花创投</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/盛世环球资产.png" alt="盛世环球资产">
+                        </div>
+                        <div class="partner-name">盛世环球资产</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/EJF.png" alt="EJF">
+                        </div>
+                        <div class="partner-name">EJF</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/惠每医疗.png" alt="惠每医疗">
+                        </div>
+                        <div class="partner-name">惠每医疗</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/LAYA Resort.png" alt="LAYA Resort">
+                        </div>
+                        <div class="partner-name">LAYA Resort</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/UTOPIA Hotel Group.png" alt="UTOPIA Hotel Group">
+                        </div>
+                        <div class="partner-name">UTOPIA Hotel Group</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/万通保险.png" alt="万通保险">
+                        </div>
+                        <div class="partner-name">万通保险</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/周大福保险.png" alt="周大福保险">
+                        </div>
+                        <div class="partner-name">周大福保险</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/泰康人寿.png" alt="泰康人寿">
+                        </div>
+                        <div class="partner-name">泰康人寿</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/信美相互.png" alt="信美相互">
+                        </div>
+                        <div class="partner-name">信美相互</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/英国保诚保险.png" alt="英国保诚">
+                        </div>
+                        <div class="partner-name">英国保诚</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/友邦保险.png" alt="友邦保险">
+                        </div>
+                        <div class="partner-name">友邦保险</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/鹏扬基金.png" alt="鹏扬基金">
+                        </div>
+                        <div class="partner-name">鹏扬基金</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/南方基金.png" alt="南方基金">
+                        </div>
+                        <div class="partner-name">南方基金</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/广发基金.png" alt="广发基金">
+                        </div>
+                        <div class="partner-name">广发基金</div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-logo">
+                            <img src="logos/博时基金.png" alt="博时基金">
+                        </div>
+                        <div class="partner-name">博时基金</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">客户声音</h2>
+            <div class="grid-cards">
+                <div class="testimonial-box">
+                    <p class="testimonial-text">"她跟其他理财顾问最大的不同在于，她从不盲目推销产品，而是真的花时间去了解我们家庭的现状和担忧。把财务交给她打理，特别踏实。"</p>
+                    <p class="testimonial-author">—— 张女士，三甲医院主任医师</p>
+                </div>
+                <div class="testimonial-box">
+                    <p class="testimonial-text">"作为创业者，我对个人财富的风险防范意识很薄弱。是她帮我梳理了家企隔离的底层逻辑，并做好了防火墙，专业度让人十分敬佩。"</p>
+                    <p class="testimonial-author">—— 刘先生，科技公司创始人</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3>开启您的专属财富规划</h3>
+                    <p><strong>工作微信：</strong> gulamei2013</p>
+                    <p><strong>联系电话：</strong> 15655352198</p>
+                    <p><strong>办公地址：</strong> 安徽省芜湖市镜湖区世贸写字楼</p>
+                </div>
+                <div class="contact-info">
+                    <h3>专业印记</h3>
+                    <p>专注提供个性化财富管理解决方案</p>
+                    <p>11年金融行业专业服务经验</p>
+                    <p>擅长固定收益理财与资产配置</p>
+                    <p>香港保险规划专业顾问</p>
+                    <p style="font-size: 18px; font-weight: 600; color: #C5A059; margin: 15px 0;">管理资产规模 (AUM)：<span style="font-size: 24px;">1.28亿</span></p>
+                    <p>客户满意度99%以上</p>
+                </div>
+            </div>
+            <div class="disclaimer">
+                合规提示：本网站提供之信息仅供参考与交流目的，不构成任何具体的投资建议、产品推介或收益保证。理财有风险，投资需谨慎。具体的财务规划方案需根据您的实际财务状况与风险承受能力，经详细咨询后出具。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 核心服务卡片阶梯式入场动画
+        const cards = document.querySelectorAll('.card');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 150);
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            cardObserver.observe(card);
+        });
+
+        // 业务板块卡片阶梯式入场动画
+        const businessCards = document.querySelectorAll('.business-item');
+        const businessCardObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 120);
+                    businessCardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        businessCards.forEach(card => {
+            businessCardObserver.observe(card);
+        });
+
+        // 弹窗功能
+        const modalOverlay = document.createElement('div');
+        modalOverlay.className = 'modal-overlay';
+        modalOverlay.innerHTML = `
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <h3 class="modal-title">扫码添加微信</h3>
+                <img src="微信二维码.png" alt="微信二维码">
+                <p class="modal-desc">工作微信：gulamei2013</p>
+            </div>
+        `;
+        document.body.appendChild(modalOverlay);
+
+        const openModalBtn = document.getElementById('open-modal-btn');
+        const closeModalBtn = modalOverlay.querySelector('.modal-close');
+
+        openModalBtn.addEventListener('click', function() {
+            modalOverlay.classList.add('show');
+        });
+
+        closeModalBtn.addEventListener('click', function() {
+            modalOverlay.classList.remove('show');
+        });
+
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('show');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('show')) {
+                modalOverlay.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
